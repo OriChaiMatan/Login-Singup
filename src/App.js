@@ -1,12 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import { LoginSignup } from './cmps/login-signup/LoginSignup';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Signup } from './cmps/login-signup/Signup';
+import { Login } from './cmps/login-signup/Login';
 
 function App() {
   return (
-    <div>
-     <LoginSignup />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './LoginSignup.css'
 
 import user_icon from '../assets/person.png'
 import email_icon from '../assets/email.png'
 import password_icon from '../assets/password.png'
 
-export function LoginSignup() {
+export function Signup() {
+
     return (
         <div className='container'>
             <div className='header'>
@@ -30,11 +32,16 @@ export function LoginSignup() {
                     <input type="password" placeholder='Password' />
                 </div>
             </div>
-            <div className="forgot-password">Lost Password? <span>Click Here!</span></div>
+            <div className="inputs">
+                <div className="input">
+                    <img src={password_icon} alt="confirm password" />
+                    <input type="password" placeholder='Confirm Password' />
+                </div>
+            </div>
             <div className="submit-container">
                 <div className="submit">Sign Up</div>
-                <div className="submit">Login</div>
             </div>
+            <div className="navigate">Have an acount? <Link to={'/login'} className='link'> Click Here to Login!</Link></div>
         </div>
     )
 }

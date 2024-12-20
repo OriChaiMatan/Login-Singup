@@ -2,11 +2,18 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './LoginSignup.css'
 
-import user_icon from '../assets/person.png'
 import email_icon from '../assets/email.png'
 import password_icon from '../assets/password.png'
+import show_icon from '../assets/show.png'
+import hide_icon from '../assets/hide.png'
 
 export function Login() {
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword((prevState) => !prevState);
+    };
 
     return (
         <div className='container'>
@@ -21,9 +28,15 @@ export function Login() {
                 </div>
             </div>
             <div className="inputs">
-                <div className="input">
+            <div className="input">
                     <img src={password_icon} alt="password" />
-                    <input type="password" placeholder='Password' />
+                    <input type={showPassword ? 'text' : 'password'} placeholder='Password' />
+                    <img
+                        src={showPassword ? hide_icon : show_icon}
+                        alt="toggle visibility"
+                        className="toggle-password"
+                        onClick={togglePasswordVisibility}
+                    />
                 </div>
             </div>
             <div className="forgot-password">Forgot your password? <span>Click Here !</span></div>
